@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service;
 public class TimerService {
 	 @Scheduled(cron="0/5 * *  * * ? ")   //每5秒执行一次  
      public void myTest(){  
-           System.out.println("进入测试");  
+           System.out.println("进入测试"); 
      }  
 }
