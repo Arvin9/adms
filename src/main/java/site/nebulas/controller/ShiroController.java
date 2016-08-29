@@ -41,7 +41,6 @@ public class ShiroController {
 	
 	@RequestMapping("loginIn")
 	public String loginIn(Model model,User user){
-		LogLogin logLogin = new LogLogin();
 		String userAccount = user.getUserAccount();
 		String password = user.getPassword();
 		

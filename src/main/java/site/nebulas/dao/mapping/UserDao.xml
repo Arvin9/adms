@@ -6,17 +6,11 @@
 	<select id="findByUserAccount" resultType="User">
 		select 
 			user_id userId, 
-			role_id roleId,
 			user_account userAccount,
-			user_mailbox userMailbox,
 			password password,
 			salt salt, 
-			real_name realName, 
-			add_time addTime,
-			is_lock isLock, 
-			add_man addMan,
-			is_delete isDelete
-		from user 
+			add_time addTime
+		from ad_user 
 		where user_account = #{userAccount}
 	</select>
 	
