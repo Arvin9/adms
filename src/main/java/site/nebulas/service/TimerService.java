@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service 
 public class TimerService {
 	 private Logger log = LoggerFactory.getLogger(TimerService.class);
-	 @Scheduled(cron="0/5 * *  * * ? ")   //每5秒执行一次  
+	 @Scheduled(cron="0 0/1 *  * * ? ")   //每5秒执行一次  
      public void myTest(){  
            log.info("进入测试"); 
      }  
