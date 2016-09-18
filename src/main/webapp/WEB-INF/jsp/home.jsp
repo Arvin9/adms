@@ -17,8 +17,8 @@
 	</head>
 
 	<body>
-		<div class="container">
-			<!-- 动态包含 -->
+		<div class="container-fluid">
+			<!-- 导航栏 -->
 			<jsp:include page="include/top.jsp"></jsp:include>
 
 			

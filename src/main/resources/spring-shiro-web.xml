@@ -119,7 +119,7 @@
     
     <!-- shiro退出登录配置 -->
 	<bean id="logout" class="org.apache.shiro.web.filter.authc.LogoutFilter"> 
-        <property name="redirectUrl" value="/index" /> 
+        <property name="redirectUrl" value="/login" /> 
     </bean> 
 
     <!-- Shiro生命周期处理器-->
