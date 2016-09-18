@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html class="bootstrap-admin-vertical-centered">
     <head>
-        <title>Login page | Bootstrap 3.x Admin Theme</title>
+        <title>Login</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -36,13 +36,16 @@
                         <a class="close" data-dismiss="alert" href="#">&times;</a>
                         Press enter key or click the Submit button
                     </div>
-                    <form method="post" action="about.html" class="bootstrap-admin-login-form">
+                    <form method="post" action="loginIn" class="bootstrap-admin-login-form" id="form">
                         <h1>Login</h1>
                         <div class="form-group">
-                            <input class="form-control" type="text" name="email" placeholder="E-mail">
+                            <input class="form-control" type="text" name="userAccount" id="userAccount" placeholder="用户名">
                         </div>
-                        <div class="form-group">
-                            <input class="form-control" type="password" name="password" placeholder="Password">
+                        <div class="form-group" >
+                            <input class="form-control" type="password" name="bePassword" id="bePassword" placeholder="密码">
+                        </div>
+                        <div class="form-group" hidden="hidden">
+                            <input class="form-control" type="password" name="password" id="password" >
                         </div>
                         <div class="form-group">
                             <label>
@@ -50,18 +53,22 @@
                                 Remember me
                             </label>
                         </div>
-                        <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+                        <a class="btn btn-lg btn-primary btn-block" onclick="login()">Sign in</a>
                     </form>
                 </div>
             </div>
         </div>
 
-        <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="${ctx}/resources/js/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="${ctx}/resources/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="${ctx}/resources/js/md5.min.js"></script>
+		<script type="text/javascript" src="${ctx}/resources/js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="${ctx}/resources/bootstrap-jquery/jquery.bootstrap.min.js"></script>
+		
         <script type="text/javascript">
             $(function() {
                 // Setting focus
-                $('input[name="email"]').focus();
+                $('input[name="userAccount"]').focus();
 
                 // Setting width of the alert box
                 var alert = $('.alert');
@@ -74,6 +81,17 @@
 
                 $('.alert').width(formWidth - 2 * alertPadding);
             });
+            var message = "${message}"
+            if ("no" == message) {
+            	$.messager.alert("警告", "无此用户");
+            }else if ("error" == message) {
+            	$.messager.alert("警告", "密码错误");
+            }
+            function login() {
+        		var password = hex_md5($('#bePassword').val());
+        		$('#password').val(password);
+        		$('#form').submit();
+        	}
         </script>
     </body>
 </html>

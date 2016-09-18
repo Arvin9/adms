@@ -37,8 +37,6 @@ public class ShiroController {
 	@Resource
 	UserService userService;
 	
-	
-	
 	@RequestMapping("loginIn")
 	public String loginIn(Model model,User user){
 		String userAccount = user.getUserAccount();
@@ -63,7 +61,6 @@ public class ShiroController {
 	        }catch(IncorrectCredentialsException ice){  
 	            System.out.println("对用户[" + userAccount + "]进行登录验证..验证未通过,错误的凭证");  
 	            model.addAttribute("message", "error");
-	           
 	            return "login";
 	        }catch(LockedAccountException lae){  
 	            System.out.println("对用户[" + userAccount + "]进行登录验证..验证未通过,账户已锁定");  
@@ -80,7 +77,7 @@ public class ShiroController {
 	            model.addAttribute("message", "error");
 	            return "login";
 	        }  
-			return "index";
+			return "home";
 		}
 		return "login";
 	}

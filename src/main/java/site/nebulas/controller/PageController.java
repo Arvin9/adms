@@ -18,7 +18,7 @@ public class PageController {
 	@RequestMapping("login")
 	public ModelAndView login(){
 		ModelAndView model = new ModelAndView("login");
-		System.out.println(userService.findByUserAccount("admin").getUserAccount());
+		//System.out.println(userService.findByUserAccount("admin").getUserAccount());
 		return model;
 	}
 	@RequestMapping("home")

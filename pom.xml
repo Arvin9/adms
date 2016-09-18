@@ -199,7 +199,8 @@
     	<groupId>commons-collections</groupId>
         <artifactId>commons-collections</artifactId>
         <version>3.2.1</version>
-    </dependency> 
+    </dependency>
+  
   </dependencies>
   <build>
 		<finalName>ssm2</finalName>
