@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>nebulas.site</groupId>
-  <artifactId>ssm2</artifactId>
+  <artifactId>adms</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <properties>
@@ -203,7 +203,7 @@
   
   </dependencies>
   <build>
-		<finalName>ssm2</finalName>
+		<finalName>adms</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
