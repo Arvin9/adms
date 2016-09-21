@@ -26,4 +26,5 @@ public class PageController {
 		ModelAndView model = new ModelAndView("home");
 		return model;
 	}
+	
 }

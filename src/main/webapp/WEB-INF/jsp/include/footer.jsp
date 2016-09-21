@@ -14,3 +14,9 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="${pageContext.request.contextPath}/resources/sb-admin/dist/js/sb-admin-2.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/bootstrap-table/dist/extensions/export/tableExport.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/bootstrap-table/dist/extensions/export/bootstrap-table-export.min.js"></script>
+	
+	<!-- put your locale files after bootstrap-table.js -->
+	<script src="${pageContext.request.contextPath}/resources/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
