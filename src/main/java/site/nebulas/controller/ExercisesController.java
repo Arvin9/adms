@@ -28,6 +28,13 @@ public class ExercisesController {
 	@RequestMapping("exercisesInsert")
 	@ResponseBody
 	public void exercisesInsert(Exercises exercises){
+		System.out.println(exercises.getExercisesContent());
 		exercisesService.inster(exercises);
+	}
+	
+	@RequestMapping("exercisesUpdate")
+	@ResponseBody
+	public void exercisesUpdate(Exercises exercises){
+		exercisesService.update(exercises);
 	}
 }

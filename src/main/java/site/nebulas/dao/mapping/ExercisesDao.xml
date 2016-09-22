@@ -32,37 +32,31 @@
 	</insert>
 	
 	<update id="update">
-		update user
+		update exercises
 		<set>
-			<if test="roleId !=null">
-				role_id = #{roleId},
+			<if test="exercisesId !=null">
+				exercises_id = #{exercisesId},
 			</if>
-			<if test="userAccount !=null and userAccount !='' ">
-				user_account = #{userAccount},
+			<if test="exercisesTitle !=null and exercisesTitle !='' ">
+				exercises_title = #{exercisesTitle},
 			</if>
-			<if test="userMailbox !=null and userMailbox !='' ">
-				user_mailbox = #{userMailbox},
+			<if test="exercisesContent !=null and exercisesContent !='' ">
+				exercises_content = #{exercisesContent},
 			</if>
-			<if test="password !=null and password !='' ">
-				password = #{password},
+			<if test="exercisesAnswer !=null and exercisesAnswer !='' ">
+				exercises_answer = #{exercisesAnswer},
 			</if>
-			<if test="salt !=null and salt !='' ">
-				salt = #{salt},
+			<if test="exercisesHint !=null and exercisesHint !='' ">
+				exercises_hint = #{exercisesHint},
 			</if>
-			<if test="addTime !=null and addTime !='' ">
-				real_name = #{addTime},
+			<if test="exercisesDifficultyLevel !=null">
+				exercises_difficulty_level = #{exercisesDifficultyLevel},
 			</if>
-			<if test="isLock !=null">
-				is_lock = #{isLock},
-			</if>
-			<if test="addMan !=null and addMan !='' ">
-				add_man = #{addMan},
-			</if>
-			<if test="isDelete !=null">
-				is_delete = #{isDelete},
+			<if test="exercisesIntegral !=null">
+				exercises_integral = #{exercisesIntegral},
 			</if>
 		</set>
-		where user_account = #{userAccount}
+		where exercises_id = #{exercisesId}
 	</update>
 	
 

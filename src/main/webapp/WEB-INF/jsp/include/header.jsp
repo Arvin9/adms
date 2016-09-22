@@ -1,5 +1,6 @@
  		<!-- Bootstrap Core CSS -->
 	    <link href="${pageContext.request.contextPath}/resources/sb-admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	    
 	    <!-- MetisMenu CSS -->
 	    <link href="${pageContext.request.contextPath}/resources/sb-admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 	

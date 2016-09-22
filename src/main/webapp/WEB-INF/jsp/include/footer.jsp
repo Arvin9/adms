@@ -1,9 +1,12 @@
 
 	<!-- jQuery -->
-    <script src="${pageContext.request.contextPath}/resources/sb-admin/vendor/jquery/jquery.min.js"></script>
-
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="${pageContext.request.contextPath}/resources/sb-admin/vendor/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script src="${pageContext.request.contextPath}/resources/jquery-easyui/jquery.easyui.min.js"></script>
+    
+    <script src="${pageContext.request.contextPath}/resources/bootstrap-jquery/jquery.bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="${pageContext.request.contextPath}/resources/sb-admin/vendor/metisMenu/metisMenu.min.js"></script>
