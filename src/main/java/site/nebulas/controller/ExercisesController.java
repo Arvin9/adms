@@ -1,17 +1,12 @@
 package site.nebulas.controller;
 
 import javax.annotation.Resource;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import site.nebulas.beans.Exercises;
 import site.nebulas.service.ExercisesService;
-import site.nebulas.service.UserService;
-
-
 
 @Controller
 public class ExercisesController {
@@ -24,10 +19,15 @@ public class ExercisesController {
 		return model;
 	}
 	
-	@RequestMapping("queryByParam")
+	@RequestMapping("exercisesQueryByParam")
 	@ResponseBody
-	public Object queryByParam(Exercises exercises){
+	public Object exercisesQueryByParam(Exercises exercises){
 		return exercisesService.queryByParam(exercises);
 	}
 	
+	@RequestMapping("exercisesInsert")
+	@ResponseBody
+	public void exercisesInsert(Exercises exercises){
+		exercisesService.inster(exercises);
+	}
 }

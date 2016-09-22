@@ -23,11 +23,12 @@
 				and exercises_title = #{exercisesTitle}
 			</if>
 		</where>
+		ORDER BY exercises_id DESC
 	</select>
 	
 	<insert id="inster">
-		insert into user(role_id,user_account,user_mailbox,password,salt,real_name,add_time,is_lock,add_man,is_delete) 
-		values(#{roleId},#{userAccount},#{userMailbox},#{password}, #{salt},#{realName},#{addTime},#{isLock},#{addMan},#{isDelete})
+		insert into exercises(exercises_title, exercises_content,exercises_answer,exercises_difficulty_level,exercises_integral,exercises_hint) 
+					 values(#{exercisesTitle},#{exercisesContent},#{exercisesAnswer},#{exercisesDifficultyLevel}, #{exercisesIntegral},#{exercisesHint})
 	</insert>
 	
 	<update id="update">

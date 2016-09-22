@@ -31,22 +31,67 @@
 	                </div>
 	                <!-- /.row -->
 	                <!-- Modal -->
-					<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
 					      		<div class="modal-header">
 					        		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 					        		<h4 class="modal-title" id="ModalLabel">Modal title</h4>
 					      		</div>
-					      		<form id="modalForm" method="post" enctype="multipart/form-data">
-						      		<div class="modal-body">
-						      		
-						      		</div>
-						     		<div class="modal-footer">
-						        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						        		<button type="button" class="btn btn-primary">Save changes</button>
-						      		</div>
-					      		</form>
+					      		<div class="modal-body">
+					      			<form id="modalForm" role="form" method="post" action="" enctype="multipart/form-data">
+						      			<div class="form-group" hidden>
+						      				<div class="input-group">
+												<label class="input-group-addon">id</label>
+										    	<input type="text" class="form-control" id="exercisesId" name="exercisesId" placeholder="id">
+										   	</div>
+										</div>
+										<div class="form-group">
+						      				<div class="input-group">
+												<label class="input-group-addon">标题</label>
+										    	<input type="text" class="form-control" id="exercisesTitle" name="exercisesTitle" placeholder="id">
+										   	</div>
+										</div>
+										<div class="form-group">
+						      				<div class="input-group">
+												<label class="input-group-addon">内容</label>
+										    	<textarea type="text" class="form-control" rows="10" style="width:100%" id="exercisesContent" name="exercisesContent" placeholder="id"></textarea>
+										   	</div>
+										</div>
+										<div class="form-group">
+						      				<div class="input-group">
+												<label class="input-group-addon">提示</label>
+										    	<input type="text" class="form-control" id="exercisesHint" name="exercisesHint" placeholder="id">
+										   	</div>
+										</div>
+										<div class="form-group">
+						      				<div class="input-group">
+												<label class="input-group-addon">答案</label>
+										    	<input type="text" class="form-control" id="exercisesAnswer" name="exercisesAnswer" placeholder="id">
+										   	</div>
+										</div>
+										<div class="form-group">
+						      				<div class="input-group">
+												<label class="input-group-addon">困难度</label>
+										    	<select class="form-control" id="exercisesDifficultyLevel" name="exercisesDifficultyLevel">
+													<option value ="1">简单</option>
+													<option value ="2">中等</option>
+													<option value ="3">困难</option>
+												</select>
+										   	</div>
+										</div>
+										<div class="form-group">
+						      				<div class="input-group">
+												<label class="input-group-addon">积分值</label>
+										    	<input type="text" class="form-control" id="exercisesIntegral" name="exercisesIntegral" placeholder="id">
+										   	</div>
+										</div>
+					      			</form>
+					      		</div>
+					      		<div class="modal-footer">
+						        	<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						        	<button type="button" class="btn btn-primary" onclick="Exercises.save()">保存</button>
+						      	</div>
 					    	</div>
 					  	</div>
 					</div>
@@ -77,13 +122,13 @@
 		$(function(){
 			Exercises.init();
 			$('#table').bootstrapTable({
-				url: '${ctx}/queryByParam',
+				url: '${ctx}/exercisesQueryByParam',
 				toolbar: "#toolbar",
 				height: $(window).height() - 200,
 				cache: false,
 				pagination: true,
                 pageSize: 3,
-                pageList: [5,10, 25, 50, 100, 200],
+                pageList: [5,10,25,50,100,200],
 				showRefresh : true,
 				showExport : true,
 				showColumns : true,
@@ -163,6 +208,18 @@
 			},
 			insert: function() {
 				$('#Modal').modal('show');
+			},
+			save: function(){
+				$.ajax({
+					type: "POST",
+					url: "exercisesInsert",
+					data: $('#modalForm').serialize(),
+					success: function(msg){
+						alert( "Data Saved: " + msg );
+					}
+				});
+				alert("save");
+				$('#Modal').modal('hide');
 			}
 		};	
 			

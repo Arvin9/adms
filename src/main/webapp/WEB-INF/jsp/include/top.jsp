@@ -1,4 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@page import="org.apache.shiro.SecurityUtils" %>
+<%@page import="org.apache.shiro.subject.Subject" %>
+<%@page import="org.apache.shiro.session.Session" %>
 <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -206,7 +210,11 @@
                 --%>
                 <!-- /.dropdown -->
                 <li class="dropdown">
+                	
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    	<shiro:user>
+                			<shiro:principal/>  
+						</shiro:user>
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
@@ -259,7 +267,10 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> 表格</a>
+                            <a href="#">
+                            	<i class="fa fa-table fa-fw"></i> 表格
+                            	<span class="fa arrow"></span>
+                            </a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="exercises">习题</a>
