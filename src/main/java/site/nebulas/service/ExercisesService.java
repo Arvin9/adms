@@ -23,6 +23,10 @@ public class ExercisesService {
     public void update(Exercises exercises){
     	exercisesDao.update(exercises);
     }
+    
+    public void delete(Exercises exercises){
+    	exercisesDao.delete(exercises);
+    }
    
 }
 

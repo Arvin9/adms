@@ -15,6 +15,8 @@ public interface ExercisesDao {
     public void inster(Exercises exercises);
     
     public void update(Exercises exercises);
+    
+    public void delete(Exercises exercises);
 
 }
 

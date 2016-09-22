@@ -37,4 +37,10 @@ public class ExercisesController {
 	public void exercisesUpdate(Exercises exercises){
 		exercisesService.update(exercises);
 	}
+	
+	@RequestMapping("exercisesDelete")
+	@ResponseBody
+	public void exercisesDelete(Exercises exercises){
+		exercisesService.delete(exercises);
+	}
 }

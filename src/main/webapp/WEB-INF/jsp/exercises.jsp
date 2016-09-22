@@ -114,7 +114,7 @@
 				        <button id="update" class="btn btn-warning" onclick="Exercises.update()">
 				            <i class="glyphicon glyphicon-pencil"></i> 修改
 				        </button>
-				        <button id="remove" class="btn btn-danger" disabled>
+				        <button id="remove" class="btn btn-danger" onclick="Exercises.remove()">
 				            <i class="glyphicon glyphicon-remove"></i> 删除
 				        </button>
 				    </div>
@@ -137,7 +137,7 @@
 				height: $(window).height() - 200,
 				cache: false,
 				pagination: true,
-                pageSize: 3,
+                pageSize: 5,
                 pageList: [5,10,25,50,100,200],
 				showRefresh : true,
 				showExport : true,
@@ -218,11 +218,6 @@
 			init: function() {
 				$('#Modal').modal('hide');
 			},
-			insert: function() {
-				$('#modalForm').form('clear');
-				$('#Modal').modal('show');
-				Exercises.commitUrl = "exercisesInsert";
-			},
 			save: function(){
 			    if(!$('#exercisesTitle').val() || !$('#exercisesContent').val() || !$('#exercisesHint').val()
 			    		|| !$('#exercisesAnswer').val() || !$('#exercisesDifficultyLevel').val() || !$('#exercisesIntegral').val()){
@@ -237,14 +232,21 @@
 					success: function(msg){
 						if("exercisesInsert" == Exercises.commitUrl){
 							$.messager.alert("消息","新增成功!" + msg);
+							$('#table').bootstrapTable('refresh');
 						}
 						if("exercisesUpdate" == Exercises.commitUrl){
 							$.messager.alert("消息","修改成功!" + msg);
+							$('#table').bootstrapTable('refresh');
 						}
 					}
 				});
 				alert("save");
 				$('#Modal').modal('hide');
+			},
+			insert: function() {
+				$('#modalForm').form('clear');
+				$('#Modal').modal('show');
+				Exercises.commitUrl = "exercisesInsert";
 			},
 			update: function(){
 				var row = $('#table').bootstrapTable('getSelections');
@@ -260,7 +262,27 @@
 				$('#modalForm').form('load',row);
 				$('#Modal').modal('show');
 				//alert('getSelections: ' + ;JSON.stringify(
+			},
+			remove: function(){
+				Exercises.commitUrl = "exercisesDelete";
+				
+				var row = $('#table').bootstrapTable('getSelections');
+				if ("" == row){
+					$.messager.alert("提示","您还未选择");
+					return;
+				}
+				row = row[0];
+				
+				var t = $.messager.confirm('警告','您将删除ID为'+row.exercisesId+'的记录!!!', function(){
+					$.post( Exercises.commitUrl, { exercisesId : row.exercisesId},function( data ) {
+						$.messager.alert("消息","成功删除!");
+						$('#table').bootstrapTable('refresh');
+					});
+				});
+				
+				
 			}
+			
 		};	
 			
 		</script>

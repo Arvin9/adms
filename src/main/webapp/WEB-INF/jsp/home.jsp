@@ -17,15 +17,21 @@
 	</head>
 
 	<body>
-		<div class="container-fluid">
+		<div class="wrapper">
 			<!-- 导航栏 -->
 			<jsp:include page="include/top.jsp"></jsp:include>
 
-			
+			<div id="page-wrapper">
+				<div class="container-fluid">
+	                <div class="row">
+	                    <div class="col-lg-12">
+	                        <h1 class="page-header">Blank</h1>
+	                    </div>
+	                    <!-- /.col-lg-12 -->
+	                </div>
+	            </div>
+			</div>
 
-
-			<!-- 静态包含 -->
-			<%@include file="include/foot.jsp"%>
 
 		</div>
 		<!-- /container -->

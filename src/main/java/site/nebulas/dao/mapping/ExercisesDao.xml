@@ -59,5 +59,10 @@
 		where exercises_id = #{exercisesId}
 	</update>
 	
+	
+	<delete id="delete">
+		delete from exercises 
+		where exercises_id = #{exercisesId}
+	</delete>
 
 </mapper>
