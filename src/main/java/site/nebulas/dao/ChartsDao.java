@@ -12,5 +12,6 @@ public interface ChartsDao {
 
 	public List<Map<String,Object>> queryUserVisitPage();
 
+	public List<Map<String,Object>> queryUserLoginCount();
 }
 

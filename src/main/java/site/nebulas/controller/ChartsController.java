@@ -16,8 +16,17 @@ public class ChartsController {
 	 * */
 	@RequestMapping("queryUserVisitPage")
 	@ResponseBody
-	public Object exercisesQueryByParam(){
+	public Object queryUserVisitPage(){
 		return chartsService.queryUserVisitPage();
+	}
+	
+	/**
+	 * 每日用户登录量
+	 * */
+	@RequestMapping("queryUserLoginCount")
+	@ResponseBody
+	public Object queryUserLoginCount(){
+		return chartsService.queryUserLoginCount();
 	}
 	
 	
