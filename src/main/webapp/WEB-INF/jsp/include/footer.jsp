@@ -23,3 +23,10 @@
 	
 	<!-- put your locale files after bootstrap-table.js -->
 	<script src="${pageContext.request.contextPath}/resources/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+	
+	<!-- 引入 ECharts 文件 -->
+    <script src="${pageContext.request.contextPath}/resources/echarts/echarts.js"></script>
+    
+    <!-- 引入 vintage 主题 -->
+	<script src="${pageContext.request.contextPath}/resources/echarts/theme/infographic.js"></script>
+    

@@ -77,7 +77,7 @@ public class ShiroController {
 	            model.addAttribute("message", "error");
 	            return "login";
 	        }  
-			return "home";
+			return "redirect:/home";
 		}
 		return "login";
 	}
