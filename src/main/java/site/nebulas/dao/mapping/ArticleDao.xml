@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.nebulas.dao.ArticleDao">
+
+
+	<select id="queryByParam" resultType="Article">
+		select 
+			article_id articleId, 
+			article_caption articleCaption,
+			article_digest articleDigest,
+			article_author articleAuthor, 
+			user_account userAccount,
+			article_create_time articleCreateTime,
+			article_update_time articleUpdateTime,
+			article_content articleContent,
+			article_remark articleRemark,
+			article_page_view articlePageView,
+			article_like articleLike,
+			article_dislike articleDislike,
+			article_is_approve articleIsApprove,
+			article_is_delete articleIsDelete
+		from article 
+		<where> 
+			<if test="articleId != null">
+				and article_id = #{articleId}
+			</if>
+			<if test="articleCaption !=null and articleCaption !='' ">
+				and article_caption = #{articleCaption}
+			</if>
+		</where>
+		ORDER BY article_id DESC
+	</select>
+	
+	<insert id="inster">
+		insert into exercises(exercises_title, exercises_content,exercises_answer,exercises_difficulty_level,exercises_integral,exercises_hint) 
+					 values(#{exercisesTitle},#{exercisesContent},#{exercisesAnswer},#{exercisesDifficultyLevel}, #{exercisesIntegral},#{exercisesHint})
+	</insert>
+	
+	<update id="update">
+		update exercises
+		<set>
+			<if test="exercisesId !=null">
+				exercises_id = #{exercisesId},
+			</if>
+			<if test="exercisesTitle !=null and exercisesTitle !='' ">
+				exercises_title = #{exercisesTitle},
+			</if>
+			<if test="exercisesContent !=null and exercisesContent !='' ">
+				exercises_content = #{exercisesContent},
+			</if>
+			<if test="exercisesAnswer !=null and exercisesAnswer !='' ">
+				exercises_answer = #{exercisesAnswer},
+			</if>
+			<if test="exercisesHint !=null and exercisesHint !='' ">
+				exercises_hint = #{exercisesHint},
+			</if>
+			<if test="exercisesDifficultyLevel !=null">
+				exercises_difficulty_level = #{exercisesDifficultyLevel},
+			</if>
+			<if test="exercisesIntegral !=null">
+				exercises_integral = #{exercisesIntegral},
+			</if>
+		</set>
+		where exercises_id = #{exercisesId}
+	</update>
+	
+	
+	<delete id="delete">
+		delete from exercises 
+		where exercises_id = #{exercisesId}
+	</delete>
+
+</mapper>

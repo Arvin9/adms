@@ -28,7 +28,6 @@ public class ExercisesController {
 	@RequestMapping("exercisesInsert")
 	@ResponseBody
 	public void exercisesInsert(Exercises exercises){
-		System.out.println(exercises.getExercisesContent());
 		exercisesService.inster(exercises);
 	}
 	

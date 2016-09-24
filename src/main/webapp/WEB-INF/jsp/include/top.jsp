@@ -276,7 +276,7 @@
                                     <a href="exercises">习题</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Morris.js Charts</a>
+                                    <a href="article">文章</a>
                                 </li>
                             </ul>
                         </li>
