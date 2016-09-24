@@ -17,8 +17,7 @@
 			article_page_view articlePageView,
 			article_like articleLike,
 			article_dislike articleDislike,
-			article_is_approve articleIsApprove,
-			article_is_delete articleIsDelete
+			article_states articleStates
 		from article 
 		<where> 
 			<if test="articleId != null">
@@ -67,11 +66,8 @@
 			<if test="articleDislike != null">
 				article_dislike = #{articleDislike},
 			</if>
-			<if test="articleIsApprove != null">
-				article_is_approve = #{articleIsApprove},
-			</if>
-			<if test="articleIsDelete !=null">
-				article_is_delete = #{articleIsDelete},
+			<if test="articleStates != null">
+				article_states = #{articleStates},
 			</if>
 		</set>
 		where article_id = #{articleId}

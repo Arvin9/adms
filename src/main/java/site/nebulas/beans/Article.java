@@ -13,8 +13,7 @@ public class Article {
 	private Integer articlePageView;//文章浏览数
 	private Integer articleLike;//点赞数
 	private Integer articleDislike;//不喜欢数
-	private Integer articleIsApprove;//审核是否通过，0未审核，1通过，2未通过
-	private Integer articleIsDelete;//文章是否删除，0否，1是
+	private Integer articleStates;//0未审核，1审核通过，2审核未通过，3删除
 	
 	public Integer getArticleId() {
 		return articleId;
@@ -88,16 +87,11 @@ public class Article {
 	public void setArticleDislike(Integer articleDislike) {
 		this.articleDislike = articleDislike;
 	}
-	public Integer getArticleIsApprove() {
-		return articleIsApprove;
+	public Integer getArticleStates() {
+		return articleStates;
 	}
-	public void setArticleIsApprove(Integer articleIsApprove) {
-		this.articleIsApprove = articleIsApprove;
+	public void setArticleStates(Integer articleStates) {
+		this.articleStates = articleStates;
 	}
-	public Integer getArticleIsDelete() {
-		return articleIsDelete;
-	}
-	public void setArticleIsDelete(Integer articleIsDelete) {
-		this.articleIsDelete = articleIsDelete;
-	}
+	
 }

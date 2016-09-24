@@ -42,18 +42,31 @@ public class ArticleController {
 		article.setArticleUpdateTime(DateUtil.getTime());
 		articleService.inster(article);
 	}
-	
+	/**
+	 * honghui
+	 * 文章更新
+	 * */
 	@RequestMapping("articleUpdate")
 	@ResponseBody
 	public void articleUpdate(Article article){
 		article.setArticleUpdateTime(DateUtil.getTime());
+		article.setArticleStates(0);
+		articleService.update(article);
+	}
+	/**
+	 * honghui
+	 * 文章状态更新
+	 * */
+	@RequestMapping("articleUpdateStatus")
+	@ResponseBody
+	public void articleUpdateStatus(Article article){
 		articleService.update(article);
 	}
 	
 	@RequestMapping("articleDelete")
 	@ResponseBody
 	public void articleDelete(Article article){
-		article.setArticleIsDelete(1);
+		article.setArticleStates(3);
 		articleService.update(article);
 	}
 }

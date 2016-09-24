@@ -34,7 +34,7 @@
 	                <!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist" id="tabList">
 						<li role="presentation" class="active">
-							<a href="#mainTab" id="mainA" role="tab" data-toggle="tab">Home</a>
+							<a href="#mainTab" id="mainA" role="tab" data-toggle="tab" onclick="Article.goBack()">Home</a>
 						</li>
 					  <!-- 
 					  <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
@@ -53,13 +53,15 @@
 						        <button id="update" class="btn btn-warning" onclick="Article.update()">
 						            <i class="glyphicon glyphicon-pencil"></i> 修改
 						        </button>
+						        <%-- 
 						        <button id="remove" class="btn btn-danger" onclick="Article.remove()">
 						            <i class="glyphicon glyphicon-remove"></i> 删除
 						        </button>
+						        --%>
 						    </div>
 			                <table id="table"></table>
 						</div>
-						<div role="tabpanel" class="tab-pane" id="insertTab" >
+						<div role="tabpanel" class="tab-pane" id="editTab" >
 							<div class="row">
 								<div class="col-md-offset-2 col-md-8">
 								
@@ -99,7 +101,7 @@
 										<div class="form-group">
 						      				<div class="input-group" id="articleEditorDiv">
 						      					<!--style给定宽度可以影响编辑器的最终宽度-->
-												<script type="text/plain" id="articleEditor"  style="height:350px;">
+												<script type="text/plain" id="articleEditor"  style="height:250px;">
     												<p>请在此输入文章内容</p>
 												</script>
 										   	</div>
@@ -113,8 +115,12 @@
 										
 					      			</form>
 									<div id="btns" class="">
-										<button class="btn btn-primary" onclick="Article.save()">提交</button>&nbsp;
-										<button class="btn" onclick="setContent()">写入内容</button>&nbsp;
+										<button class="btn btn-primary" onclick="Article.goBack()">返回</button>&nbsp;
+										<button class="btn btn-primary" id="saveBtn" onclick="Article.save()">提交</button>&nbsp;
+										<div id="checkBtns" hidden style="float:right">
+											<button class="btn btn-success" onclick="Article.pass()">通过</button>&nbsp;
+											<button class="btn btn-danger" onclick="Article.notPass()">未通过</button>&nbsp;
+										</div>
 									</div>
 									<div class="clear"></div>
 								</div>
@@ -233,7 +239,7 @@
 				        valign: "middle",
 				        title: '浏览量'
 				    },{
-				        field: 'articleIsDelete',
+				        field: 'articleStates',
 				        align: "center",
 				        valign: "middle",
 				        title: '操作',
@@ -252,60 +258,83 @@
 				        title: '不喜欢量',
 				        visible : false
 				    },{
-				        field: 'articleIsApprove',
+				        field: 'articleStates',
 				        align: "center",
 				        valign: "middle",
-				        title: '审核',
+				        title: '状态',
 				        formatter: function(value){
 				        	if(0 == value){
 				        		return "未审核";
 				        	}
 				        	if(1 == value){
-				        		return "通过";
+				        		return "审核通过";
 				        	}
 				        	if(2 == value){
-				        		return "未通过";
+				        		return "审核未通过";
 				        	}
-				        	return value;
-				        }
-				    },{
-				        field: 'articleIsDelete',
-				        align: "center",
-				        valign: "middle",
-				        title: '是否删除',
-				        visible : true,
-				        formatter: function(value){
-				        	if(0 == value) return "否";
-				        	if(1 == value) return "是";
+				        	if(3 == value){
+				        		return "删除";
+				        	}
 				        	return value;
 				        }
 				    }]
 				});		
 			});
-			function operateFormatter(value, row, index) {
+			function operateFormatter(value) {
 				if(0 == value){
 					return [
-				    	'<a class="btn btn-success">通过</a><br>',
-				        '<a class="btn btn-warning" style="margin-top:3px">未通过</a><br>',
-				        '<a class="btn btn-danger" style="margin-top:3px">删除</a>'
+				        '<a class="btn btn-warning" id="check" style="margin-top:3px">审核</a><br>',
+				        '<a class="btn btn-danger" id="remove" style="margin-top:3px">删除</a>'
 				    ].join('');
 				}
-				if(1 == value){
+				if(1 == value || 2 == value){
 					return [
-				    	'<a class="btn btn-warning">撤销删除</a><br>'
+						'<a class="btn btn-danger" id="remove" style="margin-top:3px">删除</a>'
+				    ].join('');
+				}
+				if(3 == value){
+					return [
+				    	'<a class="btn btn-info" id="annulRemove">撤销删除</a><br>'
 				    ].join('');
 				}
 				return ;
 		    }
 		    window.operateEvents = {
-		        'click .like': function (e, value, row, index) {
-		            alert('You click like action, row: ' + JSON.stringify(row));
+		        'click #check': function (e, value, row, index) {
+		        	$('#articleId').val(row.articleId);
+					$('#articleCaption').val(row.articleCaption);
+					$('#articleAuthor').val(row.articleAuthor);
+					$('#articleDigest').val(row.articleDigest);
+					$('#articleRemark').val(row.articleRemark);
+					UM.getEditor('articleEditor').setContent(row.articleContent,false);
+					
+					$("#tabList").append('<li role="presentation" id="tabLi"><a id="checkA" href="#editTab" role="tab" data-toggle="tab">审核</a></li>');
+					$('#checkA').tab('show');
+					//设定Um编辑器的宽度
+					$('#articleEditor').width($("#articleDigestDiv").width());
+					$('.edui-container').width($("#articleDigestDiv").width());
+					
+					$('#saveBtn').hide();
+					$('#checkBtns').show();
+					
 		        },
-		        'click .remove': function (e, value, row, index) {
-		            $table.bootstrapTable('remove', {
-		                field: 'id',
-		                values: [row.id]
-		            });
+		        'click #remove': function (e, value, row, index) {
+		        	$.post("articleUpdateStatus",{
+		        			articleId : row.articleId,
+		        			articleStates : 3
+		        		},function( data ) {
+							$.messager.alert("消息","操作成功!");
+							$('#table').bootstrapTable('refresh');
+					});
+		        },
+		        'click #annulRemove': function (e, value, row, index) {
+		        	$.post("articleUpdateStatus",{
+		        			articleId : row.articleId,
+		        			articleStates : 0
+		        		},function( data ) {
+							$.messager.alert("消息","操作成功!");
+							$('#table').bootstrapTable('refresh');
+					});
 		        }
 		    };
 			
@@ -346,10 +375,11 @@
 						}
 					});
 					$('#mainA').tab('show');
-					$("#insertLi").remove();
+					$("#tabLi").remove();
+					$('#checkBtns').hide();
 				},
 				insert: function() {
-					$("#tabList").append('<li role="presentation" id="insertLi"><a id="insertA" href="#insertTab" role="tab" data-toggle="tab">新增</a></li>');
+					$("#tabList").append('<li role="presentation" id="tabLi"><a id="insertA" href="#editTab" role="tab" data-toggle="tab">新增</a></li>');
 					$('#insertA').tab('show');
 					//设定Um编辑器的宽度
 					$('#articleEditor').width($("#articleDigestDiv").width());
@@ -372,7 +402,7 @@
 					$('#articleRemark').val(row.articleRemark);
 					UM.getEditor('articleEditor').setContent(row.articleContent,false);
 					
-					$("#tabList").append('<li role="presentation" id="insertLi"><a id="updateA" href="#insertTab" role="tab" data-toggle="tab">新增</a></li>');
+					$("#tabList").append('<li role="presentation" id="tabLi"><a id="updateA" href="#editTab" role="tab" data-toggle="tab">修改</a></li>');
 					$('#updateA').tab('show');
 					//设定Um编辑器的宽度
 					$('#articleEditor').width($("#articleDigestDiv").width());
@@ -396,6 +426,32 @@
 							$('#table').bootstrapTable('refresh');
 						});
 					});
+				},
+				goBack: function(){
+					$('#mainA').tab('show');
+					$('#tabLi').remove();
+					$('#checkBtns').hide();
+					$('#saveBtn').show();
+				},
+				pass: function(){
+					$.post("articleUpdateStatus",{
+		        			articleId : $('#articleId').val(),
+		        			articleStates : 1
+		        		},function( data ) {
+							$.messager.alert("消息","操作成功!");
+							$('#table').bootstrapTable('refresh');
+					});
+					Article.goBack();
+				},
+				notPass: function(){
+					$.post("articleUpdateStatus",{
+		        			articleId : $('#articleId').val(),
+		        			articleStates : 2
+		        		},function( data ) {
+							$.messager.alert("消息","操作成功!");
+							$('#table').bootstrapTable('refresh');
+					});
+					Article.goBack();
 				}
 			};	
 
