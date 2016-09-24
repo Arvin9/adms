@@ -29,4 +29,9 @@
     
     <!-- 引入 vintage 主题 -->
 	<script src="${pageContext.request.contextPath}/resources/echarts/theme/infographic.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/resources/umeditor/umeditor.config.js" type="text/javascript" charset="utf-8"></script>
+	<script src="${pageContext.request.contextPath}/resources/umeditor/umeditor.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="${pageContext.request.contextPath}/resources/umeditor/lang/zh-cn/zh-cn.js" type="text/javascript" charset="utf-8"></script>
+	
     

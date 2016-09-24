@@ -32,42 +32,54 @@
 	</select>
 	
 	<insert id="inster">
-		insert into exercises(exercises_title, exercises_content,exercises_answer,exercises_difficulty_level,exercises_integral,exercises_hint) 
-					 values(#{exercisesTitle},#{exercisesContent},#{exercisesAnswer},#{exercisesDifficultyLevel}, #{exercisesIntegral},#{exercisesHint})
+		insert into 
+		article(article_caption, article_digest,article_author,user_account,article_create_time,article_update_time,article_content,article_remark) 
+		values(#{articleCaption},#{articleDigest},#{articleAuthor},#{userAccount}, #{articleCreateTime},#{articleUpdateTime},#{articleContent},#{articleRemark})
 	</insert>
 	
 	<update id="update">
-		update exercises
+		update article
 		<set>
-			<if test="exercisesId !=null">
-				exercises_id = #{exercisesId},
+			<if test="articleCaption !=null and articleCaption !=''">
+				article_caption = #{articleCaption},
 			</if>
-			<if test="exercisesTitle !=null and exercisesTitle !='' ">
-				exercises_title = #{exercisesTitle},
+			<if test="articleDigest !=null and articleDigest !='' ">
+				article_digest = #{articleDigest},
 			</if>
-			<if test="exercisesContent !=null and exercisesContent !='' ">
-				exercises_content = #{exercisesContent},
+			<if test="articleAuthor !=null and articleAuthor !='' ">
+				article_author = #{articleAuthor},
 			</if>
-			<if test="exercisesAnswer !=null and exercisesAnswer !='' ">
-				exercises_answer = #{exercisesAnswer},
+			<if test="articleUpdateTime !=null and articleUpdateTime !='' ">
+				article_update_time = #{articleUpdateTime},
 			</if>
-			<if test="exercisesHint !=null and exercisesHint !='' ">
-				exercises_hint = #{exercisesHint},
+			<if test="articleContent !=null and articleContent !='' ">
+				article_content = #{articleContent},
 			</if>
-			<if test="exercisesDifficultyLevel !=null">
-				exercises_difficulty_level = #{exercisesDifficultyLevel},
+			<if test="articleRemark !=null and articleRemark !=''">
+				article_remark = #{articleRemark},
 			</if>
-			<if test="exercisesIntegral !=null">
-				exercises_integral = #{exercisesIntegral},
+			<if test="articlePageView !=null">
+				article_page_view = #{articlePageView},
+			</if>
+			<if test="articleLike !=null">
+				article_like = #{articleLike},
+			</if>
+			<if test="articleDislike != null">
+				article_dislike = #{articleDislike},
+			</if>
+			<if test="articleIsApprove != null">
+				article_is_approve = #{articleIsApprove},
+			</if>
+			<if test="articleIsDelete !=null">
+				article_is_delete = #{articleIsDelete},
 			</if>
 		</set>
-		where exercises_id = #{exercisesId}
+		where article_id = #{articleId}
 	</update>
-	
 	
 	<delete id="delete">
 		delete from exercises 
-		where exercises_id = #{exercisesId}
+		where article_id = #{articleId}
 	</delete>
 
 </mapper>
