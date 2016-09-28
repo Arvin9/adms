@@ -34,5 +34,12 @@ public class PageController {
 		model.addObject("userLoginCountMap", JSON.toJSON(chartsService.queryUserLoginCount()));
 		return model;
 	}
-	
+	/**
+	 * 模板页面
+	 * */
+	@RequestMapping("template")
+	public ModelAndView template(){
+		ModelAndView model = new ModelAndView("template");
+		return model;
+	}
 }

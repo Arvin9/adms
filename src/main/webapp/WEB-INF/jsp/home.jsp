@@ -20,7 +20,7 @@
 	<body>
 		<div class="wrapper">
 			<!-- 导航栏 -->
-			<jsp:include page="include/top.jsp"></jsp:include>
+			<jsp:include page="include/nav.jsp"></jsp:include>
 
 			<div id="page-wrapper">
 				<div class="container-fluid">

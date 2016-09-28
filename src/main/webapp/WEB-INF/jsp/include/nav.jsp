@@ -284,7 +284,7 @@
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>工具<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="panels-wells.html">Panels and Wells</a>
