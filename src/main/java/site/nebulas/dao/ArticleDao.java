@@ -11,12 +11,20 @@ import site.nebulas.beans.Article;
 public interface ArticleDao {
 
 	public List<Article> queryByParam(Article article);
+	/**
+	 * 前台显示，状态为审核通过
+	 * */
+	public List<Article> queryForShow(Article article);
 	
     public void inster(Article article);
     
     public void update(Article article);
     
     public void delete(Article article);
+    
+    public void articleLikeIncrease(Article article);
+    public void articleDisLikeIncrease(Article article);
+    public void articlePageViewIncrease(Article article);
 
 }
 

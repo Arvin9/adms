@@ -278,6 +278,10 @@
                                 <li>
                                     <a href="article">文章</a>
                                 </li>
+                                <li>
+                                    <a href="articleShow">文章展示</a>
+                                </li>
+                                
                             </ul>
                         </li>
                         <li>

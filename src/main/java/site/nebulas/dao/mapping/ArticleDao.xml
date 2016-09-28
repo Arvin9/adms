@@ -27,7 +27,19 @@
 				and article_caption = #{articleCaption}
 			</if>
 		</where>
-		ORDER BY article_id DESC
+		ORDER BY article_update_time DESC
+	</select>
+	
+	<select id="queryForShow" resultType="Article">
+		select 
+			article_id articleId, 
+			article_caption articleCaption,
+			article_digest articleDigest,
+			article_update_time articleUpdateTime,
+			article_page_view articlePageView
+		from article 
+		where article_states = 1
+		ORDER BY article_update_time DESC
 	</select>
 	
 	<insert id="inster">
@@ -77,5 +89,23 @@
 		delete from exercises 
 		where article_id = #{articleId}
 	</delete>
+	
+	<update id="articleLikeIncrease">
+		update article
+		set article_like = article_like + 1
+		where article_id = #{articleId}
+	</update>
+	
+	<update id="articleDisLikeIncrease">
+		update article
+		set article_dislike = article_dislike + 1
+		where article_id = #{articleId}
+	</update>
+	
+	<update id="articlePageViewIncrease">
+		update article
+		set article_page_view = article_page_view + 1
+		where article_id = #{articleId}
+	</update>
 
 </mapper>

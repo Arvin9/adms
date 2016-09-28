@@ -15,7 +15,13 @@ public class ArticleService {
     public List<Article> queryByParam(Article article){
     	return articleDao.queryByParam(article);
     }
-	
+    /**
+	 * 前台显示，状态为审核通过
+	 * */
+    public List<Article> queryForShow(Article article){
+    	return articleDao.queryForShow(article);
+    }
+    
     public void inster(Article article){
     	articleDao.inster(article);
     }
@@ -26,6 +32,16 @@ public class ArticleService {
     
     public void delete(Article article){
     	articleDao.delete(article);
+    }
+    
+    public void articleLikeIncrease(Article article){
+    	articleDao.articleLikeIncrease(article);
+    }
+    public void articleDisLikeIncrease(Article article){
+    	articleDao.articleDisLikeIncrease(article);
+    }
+    public void articlePageViewIncrease(Article article){
+    	articleDao.articlePageViewIncrease(article);
     }
    
 }
