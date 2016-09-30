@@ -279,9 +279,8 @@
                                     <a href="article">文章</a>
                                 </li>
                                 <li>
-                                    <a href="articleShow">文章展示</a>
+                                    <a href="timeline">时间轴</a>
                                 </li>
-                                
                             </ul>
                         </li>
                         <li>
@@ -344,8 +343,11 @@
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                            	<li>
+                                    <a href="articleShow">文章展示</a>
+                                </li>
                                 <li>
-                                    <a href="blank.html">Blank Page</a>
+                                    <a href="timelineShow">时间轴展示</a>
                                 </li>
                                 <li>
                                     <a href="login.html">Login Page</a>

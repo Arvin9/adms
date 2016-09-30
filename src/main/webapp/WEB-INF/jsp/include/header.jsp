@@ -11,12 +11,12 @@
 	    <link href="${pageContext.request.contextPath}/resources/sb-admin/vendor/morrisjs/morris.css" rel="stylesheet">
 	
 	    <!-- Custom Fonts -->
-	    <link href="${pageContext.request.contextPath}/resources/sb-admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	    <link href="${pageContext.request.contextPath}/resources/sb-admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	
 		<link href="${pageContext.request.contextPath}/resources/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet">
 	
 	
-		<link href="${pageContext.request.contextPath}/resources/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/resources/umeditor/themes/default/css/umeditor.css" rel="stylesheet">
 	    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	    <!--[if lt IE 9]>
