@@ -57,7 +57,7 @@ public class MailUtil {
             //InternetAddress bcc = new InternetAddress("");
             //message.setRecipient(RecipientType.CC, bcc);
             // 设置邮件标题
-            message.setSubject("问候邮件");
+            message.setSubject("noReply");
 
             // 设置邮件的内容体
             message.setContent("<a href='http://www.baidu.com'>国庆节快乐</a>", "text/html;charset=UTF-8");
