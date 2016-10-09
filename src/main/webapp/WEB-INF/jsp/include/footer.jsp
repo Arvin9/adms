@@ -35,4 +35,5 @@
 	<script src="${pageContext.request.contextPath}/resources/umeditor/umeditor.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="${pageContext.request.contextPath}/resources/umeditor/lang/zh-cn/zh-cn.js" type="text/javascript" charset="utf-8"></script>
 	
-    
+    <!-- Fine Uploader JS file -->
+    <script src="${pageContext.request.contextPath}/resources/fineUploader/js/fine-uploader.js"></script>

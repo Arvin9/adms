@@ -350,6 +350,9 @@
                                     <a href="timelineShow">时间轴展示</a>
                                 </li>
                                 <li>
+                                    <a href="fineUploader">文件上传</a>
+                                </li>
+                                <li>
                                     <a href="login.html">Login Page</a>
                                 </li>
                             </ul>

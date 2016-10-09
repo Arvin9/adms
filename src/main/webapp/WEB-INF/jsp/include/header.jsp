@@ -23,4 +23,7 @@
 	        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    <![endif]-->
+	    
+	    <!-- Fine Uploader New/Modern CSS file -->
+    	<link href="${pageContext.request.contextPath}/resources/fineUploader/css/fine-uploader-new.css" rel="stylesheet">
 
