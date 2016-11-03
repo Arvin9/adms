@@ -44,4 +44,5 @@ public class PageController {
 		ModelAndView model = new ModelAndView("template");
 		return model;
 	}
+	
 }

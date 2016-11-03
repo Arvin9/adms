@@ -7,9 +7,11 @@ public class Exercises {
 	private String exercisesAnswer;
 	private Integer exercisesDifficultyLevel;//题目难度，1为容易，2为中等，3为困难
 	private Integer exercisesIntegral; //习题积分值,1为容易，2为中等，3为困难
-	private String exercisesHint;	
+	private String exercisesHint;
+	
 	private Integer answerCount;
 	private Integer answerCorrectCount;
+	private Integer answerErrorCount;
 	
 	
 	public Integer getExercisesId() {
@@ -18,7 +20,6 @@ public class Exercises {
 	public void setExercisesId(Integer exercisesId) {
 		this.exercisesId = exercisesId;
 	}
-	
 	public String getExercisesTitle() {
 		return exercisesTitle;
 	}
@@ -66,6 +67,12 @@ public class Exercises {
 	}
 	public void setAnswerCorrectCount(Integer answerCorrectCount) {
 		this.answerCorrectCount = answerCorrectCount;
+	}
+	public Integer getAnswerErrorCount() {
+		return answerErrorCount;
+	}
+	public void setAnswerErrorCount(Integer answerErrorCount) {
+		this.answerErrorCount = answerErrorCount;
 	}
 	
 	
